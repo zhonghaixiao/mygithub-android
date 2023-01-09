@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txt_device_sn"
+            android:text="设备SN: 12345678"
+            android:textSize="28sp"
+            android:textColor="@color/primary_color"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:background="@color/gray_bg_color"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.lihang.ShadowLayout
+                android:paddingTop="23dp"
+                android:paddingBottom="23dp"
+                app:hl_cornerRadius="4dp"
+                app:hl_layoutBackground="@color/white"
+                android:background="@color/white"
+                android:layout_width="800dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:gravity="right"
+                    android:paddingRight="58dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.easyhi.manage.ui.view.SettingItem
+                        android:id="@+id/setting_easyid"
+                        app:itemTitle="easyID:"
+                        app:itemContent="2022010001"
+                        app:optButtonText="解绑"
+                        app:showOptButton="true"
+                        app:btnColor="#90c301"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.easyhi.manage.ui.view.SettingItem
+                        android:id="@+id/setting_merchant_name"
+                        app:itemTitle="商户简称:"
+                        app:itemContent="奕起嗨Demo店"
+                        app:showOptButton="false"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.easyhi.manage.ui.view.SettingItem
+                        android:id="@+id/setting_bind_time"
+                        app:itemTitle="绑定时间:"
+                        app:itemContent="2021年12月12日 13:23:34"
+                        app:showOptButton="false"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.easyhi.manage.ui.view.SettingItem
+                        android:id="@+id/setting_device_type"
+                        app:itemTitle="设备型号:"
+                        app:itemContent="SUNMI D2s PLUS"
+                        app:showOptButton="false"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.easyhi.manage.ui.view.SettingItem
+                        android:id="@+id/setting_device_name"
+                        app:itemTitle="设备别名:"
+                        app:itemContent="新城科技大厦01栋6层602"
+                        app:optButtonText="修改"
+                        app:showOptButton="true"
+                        app:btnColor="@color/primary_color"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.easyhi.manage.ui.view.SettingItem
+                        android:id="@+id/setting_clear_auth"
+                        app:itemTitle="登录保护:"
+                        app:itemContent="关闭APP时，自动退出登录状态"
+                        app:optButtonText="修改"
+                        app:showOptButton="true"
+                        app:btnColor="@color/primary_color"
+                        android:layout_marginTop="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <com.easyhi.manage.ui.view.ButtonWithCount
+                        android:id="@+id/btn_back"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="29dp"
+                        android:layout_marginRight="-35dp"
+                        app:buttonText="返回"
+                        android:layout_width="276dp"
+                        android:layout_height="59dp"/>
+                </LinearLayout>
+            </com.lihang.ShadowLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

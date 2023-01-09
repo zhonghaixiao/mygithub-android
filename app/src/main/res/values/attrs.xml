@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SettingItem">
+        <attr name="itemTitle" format="string"/>
+        <attr name="itemContent" format="string"/>
+        <attr name="showOptButton" format="boolean"/>
+        <attr name="optButtonText" format="string"/>
+        <attr name="btnColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="ButtonWithCount">
+        <attr name="buttonText" format="string" />
+    </declare-styleable>
+</resources>

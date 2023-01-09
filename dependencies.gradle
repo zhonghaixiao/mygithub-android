@@ -1,0 +1,6 @@
+ext{
+    navVersion = "2.5.3"
+    zxingVersion = "3.5.1"
+    hilt_version = "2.44.2"
+    kotlin_version = "1.7.20"
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>easyHi jsApi 测试</title>
+    <!-- 新 Bootstrap5 核心 CSS 文件 -->
+    <link rel="stylesheet" href="./bootstrap.min.css">
+
+    <!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="./popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+    <script src="./bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <button id="testhello" type="button" class="btn btn-primary">测试</button>
+        </div>
+    </div>
+</body>
+<script>
+
+    class JsApi {
+
+        constructor() {
+            this.callHandlerMap = new Map()
+            window.easyHiCallback = function (callbackName, paramsStr) {
+                console.log(`easyHiCallback ${paramsStr.name}`)
+                if (this.callHandlerMap[code]) {
+                    this.callHandlerMap[code]()
+                }
+            }
+        }
+
+        call(code, params, callback) {
+            if (typeof easyHiObj !== "undefined") {
+                this.callHandlerMap[code] = callback
+                easyHiObj.callHandler(code, params)
+            }
+        }
+
+    }
+    
+    
+
+    let jsApi = new JsApi()
+
+    document.onreadystatechange = function () {
+        if (document.readyState === 'complete') {
+            console.log("页面加载完毕")
+        }
+    }
+    document.getElementById("testhello").addEventListener("click", function () {
+        jsApi.call("print", JSON.stringify({
+            "contents": "<c>测试居中</c><br></br>"
+        }), function (result) {
+            console.log("print callback")
+        })
+    })
+
+    document.onload = function () {
+        console.log("页面所有内容加载完成执行")
+    }
+
+
+</script>
+
+</html>

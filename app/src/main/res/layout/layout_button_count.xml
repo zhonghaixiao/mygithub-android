@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lihang.ShadowLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:hl_cornerRadius="4dp"
+    app:hl_shadowHidden="false"
+    app:hl_shadowLimit="6dp"
+    app:hl_shadowHiddenLeft="true"
+    app:hl_shadowHiddenTop="true"
+    app:hl_shadowColor="#262386e3"
+    app:hl_angle="45"
+    app:hl_startColor="#49bbf3"
+    app:hl_endColor="#2386e3"
+    app:hl_shadowOffsetX="3dp"
+    app:hl_shadowOffsetY="6dp"
+    app:hl_shapeMode="pressed"
+    app:hl_layoutBackground_true="#E62386E3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txt_count"
+        android:text="验证"
+        android:textSize="21sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</com.lihang.ShadowLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.lihang.ShadowLayout
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            app:hl_cornerRadius="2dp"
+            app:hl_layoutBackground="@color/white"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/dialog_common_header"
+                    android:id="@+id/common_header" />
+            </LinearLayout>
+        </com.lihang.ShadowLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
