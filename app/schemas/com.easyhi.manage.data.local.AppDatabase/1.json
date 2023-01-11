@@ -1,0 +1,96 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "49a4bf6458a54059cd2e859b5e997679",
+    "entities": [
+      {
+        "tableName": "TestBean",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `token` TEXT NOT NULL, PRIMARY KEY(`userId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "token",
+            "columnName": "token",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "userId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "DeviceInfo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`sn` TEXT NOT NULL, `deviceName` TEXT NOT NULL, `deviceType` TEXT NOT NULL, `merchantName` TEXT NOT NULL, `easyId` TEXT NOT NULL, `bindTime` TEXT, `clearAuthWhenExit` INTEGER NOT NULL, PRIMARY KEY(`sn`))",
+        "fields": [
+          {
+            "fieldPath": "sn",
+            "columnName": "sn",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deviceName",
+            "columnName": "deviceName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deviceType",
+            "columnName": "deviceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "merchantName",
+            "columnName": "merchantName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "easyId",
+            "columnName": "easyId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bindTime",
+            "columnName": "bindTime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "clearAuthWhenExit",
+            "columnName": "clearAuthWhenExit",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "sn"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '49a4bf6458a54059cd2e859b5e997679')"
+    ]
+  }
+}
