@@ -1,8 +1,8 @@
 package com.easyhi.manage.di
 
 import com.easyhi.manage.BuildConfig
-import com.easyhi.manage.net.DeviceService
-import com.easyhi.manage.net.MerchantService
+import com.easyhi.manage.data.network.DeviceService
+import com.easyhi.manage.data.network.MerchantService
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -47,13 +47,13 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideDeviceService(retrofit: Retrofit): DeviceService{
+    fun provideDeviceService(retrofit: Retrofit): DeviceService {
         return retrofit.create(DeviceService::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideMerchantService(retrofit: Retrofit): MerchantService{
+    fun provideMerchantService(retrofit: Retrofit): MerchantService {
         return retrofit.create(MerchantService::class.java)
     }
 

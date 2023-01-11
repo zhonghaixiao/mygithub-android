@@ -1,9 +1,7 @@
 package com.easyhi.manage.di
 
 import android.content.Context
-import android.content.SharedPreferences
-import com.easyhi.manage.data.AppDatabase
-import com.easyhi.manage.util.SpUtil
+import com.easyhi.manage.data.local.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,12 +18,5 @@ object DatabaseModule {
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
         return AppDatabase.getInstance(context)
     }
-
-    @Singleton
-    @Provides
-    fun providePreferences(): SharedPreferences {
-        return SpUtil.getSp()
-    }
-
 
 }

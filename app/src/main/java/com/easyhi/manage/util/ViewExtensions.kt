@@ -25,14 +25,6 @@ fun withDebug(callback: ()->Unit) {
     }
 }
 
-fun clearAuthInfoIfNeed(){
-    val clearAuthWhenExit = MyApplication.sp.getBoolean(KEY_CLEAR_COOKIE_WHEN_EXIT, false)
-    if (clearAuthWhenExit) {
-        CookieManager.getInstance().removeAllCookies(null)
-        MyApplication.sp.edit().remove(KEY_CURRENT_URL)
-    }
-}
-
 private tailrec fun getCompatActivity(context: Context?): AppCompatActivity? {
     return when (context) {
         is AppCompatActivity -> context
