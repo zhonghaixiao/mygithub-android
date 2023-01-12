@@ -17,8 +17,16 @@ data class BindInfo(
     val merchantName: String?
 )
 
+data class AuthToken(
+    val accessToken: String,
+    val scope: String,
+    val tokenType: String
+)
 
-
+data class AuthTokenResult(
+    val errorMessage: String? = null,
+    val token: AuthToken? = null
+)
 
 
 

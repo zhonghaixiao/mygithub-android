@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "com.easyhi.manage.serialize";
+option java_multiple_files = true;
+
+
+message Settings {
+    int32 example_counter = 1;
+    string name = 2;
+}
+
+message AuthTokenP {
+    string token_type = 1;
+    repeated string scopes = 2;
+    string access_token = 3;
+}
+
+

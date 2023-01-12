@@ -1,7 +1,10 @@
 package com.easyhi.manage.di
 
 import android.content.Context
+import androidx.datastore.core.DataStore
 import com.easyhi.manage.data.local.AppDatabase
+import com.easyhi.manage.data.local.tokenDataStore
+import com.easyhi.manage.serialize.AuthTokenP
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +20,12 @@ object DatabaseModule {
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
         return AppDatabase.getInstance(context)
+    }
+
+    @Singleton
+    @Provides
+    fun provideAuthTokenStore(@ApplicationContext context: Context): DataStore<AuthTokenP> {
+        return context.tokenDataStore
     }
 
 }

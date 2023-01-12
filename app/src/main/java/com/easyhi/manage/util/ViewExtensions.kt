@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.easyhi.manage.BuildConfig
-import com.easyhi.manage.MyApplication
-import com.tencent.smtt.sdk.CookieManager
 
 fun withDebug(callback: ()->Unit) {
     if (BuildConfig.DEBUG) {

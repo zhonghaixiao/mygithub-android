@@ -23,6 +23,10 @@
 -dontwarn dalvik.**
 -dontwarn com.tencent.smtt.**
 
+-keepclassmembers class * extends androidx.datastore.preferences.protobuf.GeneratedMessageLite {
+    <fields>;
+}
+
 -keep class com.tencent.smtt.** {
     *;
 }

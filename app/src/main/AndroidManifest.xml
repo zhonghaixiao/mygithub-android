@@ -7,10 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
-    <!-- To support printerlibrary on Android R -->
-    <queries>
-        <package android:name="woyou.aidlservice.jiuiv5"/>
-    </queries>
 
     <application
         android:allowBackup="true"
@@ -31,13 +27,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+            <!-- Scheme -->
+            <intent-filter>
+                <data
+                    android:host="example.com"
+                    android:scheme="mygithub" />
 
-        <service
-            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
-            android:label="dexopt"
-            android:process=":dexopt" >
-        </service>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
 
     </application>
 

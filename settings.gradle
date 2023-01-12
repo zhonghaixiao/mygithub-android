@@ -21,5 +21,5 @@ dependencyResolutionManagement {
         google()
     }
 }
-rootProject.name = "easyhi"
+rootProject.name = "github"
 include ':app'

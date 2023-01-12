@@ -3,52 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/webviewFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/bindingFragment"
-        android:name="com.easyhi.manage.ui.fragment.BindingFragment"
-        android:label="fragment_binding"
-        tools:layout="@layout/fragment_binding" >
+        android:id="@+id/loginFragment"
+        android:name="com.easyhi.manage.ui.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_bindingFragment_to_bindingCodeFragment"
-            app:destination="@id/bindingCodeFragment" >
-            <argument android:name="easyId" app:nullable="true" app:argType="string"/>
-        </action>
-    </fragment>
-    <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.easyhi.manage.ui.fragment.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" >
-        <action
-            app:popUpToInclusive="@id/bindingFragment"
-            android:id="@+id/action_settingFragment_to_bindingFragment"
-            app:destination="@id/bindingFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/webviewFragment"
-        android:name="com.easyhi.manage.ui.fragment.WebViewFragment"
-        android:label="fragment_webview"
-        tools:layout="@layout/fragment_webview" >
-        <action
-            android:id="@+id/action_webviewFragment_to_bindingFragment"
-            app:destination="@id/bindingFragment" />
-        <action
-            android:id="@+id/action_webviewFragment_to_bindingCodeFragment"
-            app:destination="@id/bindingCodeFragment" />
-    </fragment>
-    <dialog
-        android:id="@+id/bindingCodeFragment"
-        android:name="com.easyhi.manage.ui.fragment.BindingCodeDialogFragment"
-        android:label="BindingCodeFragment" >
-        <argument android:name="easyId" app:nullable="true" app:argType="string" android:defaultValue=""/>
-        <action
-            android:id="@+id/action_bindingCodeFragment_to_settingFragment"
-            app:destination="@id/settingFragment" />
-        <action
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/mainFragment"
             app:popUpToInclusive="true"
-            android:id="@+id/action_bindingCodeFragment_to_webviewFragment"
-            app:destination="@id/webviewFragment" />
-    </dialog>
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.easyhi.manage.ui.fragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>
