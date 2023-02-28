@@ -2,6 +2,7 @@ package com.easyhi.manage
 
 import android.app.Application
 import android.util.Log
+import com.amap.api.location.AMapLocationClient
 import com.github.gzuliyujiang.oaid.DeviceID
 import com.github.gzuliyujiang.oaid.DeviceIdentifier
 import com.github.gzuliyujiang.oaid.IGetter
@@ -26,9 +27,15 @@ class MyApplication : Application() {
         INSTANCE = this
         SQLiteDatabase.loadLibs(this)
 
+        AMapLocationClient.updatePrivacyShow(this, true, true)
+        AMapLocationClient.updatePrivacyAgree(this, true)
+
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "DeviceIdentifier.getIMEI(this) = ${DeviceIdentifier.getIMEI(this)}")
-            Log.d(TAG, "DeviceIdentifier.getAndroidID(this) = ${DeviceIdentifier.getAndroidID(this)}")
+            Log.d(
+                TAG,
+                "DeviceIdentifier.getAndroidID(this) = ${DeviceIdentifier.getAndroidID(this)}"
+            )
             Log.d(TAG, "DeviceIdentifier.getWidevineID() = ${DeviceIdentifier.getWidevineID()}")
             Log.d(TAG, "DeviceIdentifier.getPseudoID() = ${DeviceIdentifier.getPseudoID()}")
             Log.d(TAG, "DeviceIdentifier.getGUID(this) = ${DeviceIdentifier.getGUID(this)}")

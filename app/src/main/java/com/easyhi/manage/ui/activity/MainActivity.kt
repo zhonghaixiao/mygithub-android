@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import com.easyhi.manage.R
 import com.easyhi.manage.databinding.ActivityMainBinding
@@ -13,6 +16,9 @@ import com.easyhi.manage.ui.viewmodel.LoginViewModel
 import com.easyhi.manage.util.DEBUG_TAG
 import com.easyhi.manage.util.TempStore
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 private const val TAG = "MainActivity"
 
@@ -44,6 +50,17 @@ class MainActivity : AppCompatActivity() {
             }
             // 获取访问令牌
             loginViewModel.getAuthToken(code)
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                loginViewModel.loginStatus
+                    .collectLatest { hasLogin ->
+                        if (!hasLogin) {
+                            findNavController(R.id.nav_host_fragment).navigate(R.id.loginFragment)
+                        }
+                    }
+            }
         }
 
     }

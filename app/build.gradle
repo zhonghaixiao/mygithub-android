@@ -112,14 +112,14 @@ android {
             applicationIdSuffix ".debug"
             buildConfigField "String", "base_url", "\"https://github.com\""
             buildConfigField "String", "webview_prefix", "\"https://test.easy-hi.com/m/\""
-            manifestPlaceholders = [appName:"奕起嗨测试"]
+            manifestPlaceholders = [appName:"高德定位测试"]
         }
 
         prod {
             dimension "env"
             buildConfigField "String", "base_url", "\"https://mapp.easy-hi.com/m/api/\""
             buildConfigField "String", "webview_prefix", "\"https://mapp.easy-hi.com/m/\""
-            manifestPlaceholders = [appName:"奕起嗨生产"]
+            manifestPlaceholders = [appName:"高德定位测试"]
         }
     }
     buildFeatures {
@@ -148,8 +148,10 @@ protobuf {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['**/*.aar'])
+    implementation fileTree(dir: 'libs', include: ['**/*.jar'])
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.20"
     implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'com.google.android.material:material:1.7.0'
@@ -170,6 +172,8 @@ dependencies {
     androidTestImplementation "androidx.navigation:navigation-testing:${navVersion}"
 
     implementation "com.google.zxing:core:3.5.1"
+
+    implementation 'com.github.getActivity:XXPermissions:13.5'
 
     // 网络
     implementation("com.squareup.okhttp3:okhttp:4.10.0")

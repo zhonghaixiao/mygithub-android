@@ -16,6 +16,17 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.easyhi.manage.BuildConfig
+import com.easyhi.manage.R
+
+fun Int.toMenuIndex(): Int{
+    return when(this) {
+        R.id.home -> 0
+        R.id.notification -> 1
+        R.id.explore -> 2
+        R.id.mine -> 3
+        else -> 0
+    }
+}
 
 fun withDebug(callback: ()->Unit) {
     if (BuildConfig.DEBUG) {

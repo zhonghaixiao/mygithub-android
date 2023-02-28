@@ -1,0 +1,24 @@
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="首页"/>
+    <item
+        android:id="@+id/notification"
+        android:enabled="true"
+        android:icon="@drawable/ic_notification"
+        android:title="通知"/>
+    <item
+        android:id="@+id/explore"
+        android:enabled="true"
+        android:icon="@drawable/ic_explore"
+        android:title="搜素"/>
+    <item
+        android:id="@+id/mine"
+        android:enabled="true"
+        android:icon="@drawable/ic_mine"
+        android:title="我的"/>
+</menu>
