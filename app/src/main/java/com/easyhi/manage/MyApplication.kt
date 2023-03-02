@@ -2,11 +2,15 @@ package com.easyhi.manage
 
 import android.app.Application
 import android.util.Log
-import com.amap.api.location.AMapLocationClient
+import com.easyhi.manage.data.local.tokenDataStore
+import com.easyhi.manage.serialize.AuthTokenP
 import com.github.gzuliyujiang.oaid.DeviceID
 import com.github.gzuliyujiang.oaid.DeviceIdentifier
 import com.github.gzuliyujiang.oaid.IGetter
 import dagger.hilt.android.HiltAndroidApp
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import net.sqlcipher.database.SQLiteDatabase
 
 
@@ -20,15 +24,17 @@ class MyApplication : Application() {
         lateinit var INSTANCE: MyApplication
             private set
 
+        var authTokenP: AuthTokenP? = null
+
+        val hasLogin: Boolean
+            get() = authTokenP != null
+
     }
 
     override fun onCreate() {
         super.onCreate()
         INSTANCE = this
         SQLiteDatabase.loadLibs(this)
-
-        AMapLocationClient.updatePrivacyShow(this, true, true)
-        AMapLocationClient.updatePrivacyAgree(this, true)
 
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "DeviceIdentifier.getIMEI(this) = ${DeviceIdentifier.getIMEI(this)}")
@@ -52,6 +58,12 @@ class MyApplication : Application() {
                     Log.d(TAG, "onOAIDGetError = $error")
                 }
             })
+        }
+
+        GlobalScope.launch {
+            tokenDataStore.data.collectLatest { authToken ->
+                authTokenP = authToken
+            }
         }
 
     }

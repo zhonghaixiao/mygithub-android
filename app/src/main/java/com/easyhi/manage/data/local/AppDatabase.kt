@@ -9,15 +9,19 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.easyhi.manage.data.local.bean.DeviceInfo
 import com.easyhi.manage.data.local.bean.TestBean
+import com.easyhi.manage.data.local.dao.UserDao
+import com.easyhi.manage.data.network.User
 
 @Database(
-    entities = [TestBean::class, DeviceInfo::class],
-    version = 1, exportSchema = true
+    entities = [TestBean::class, DeviceInfo::class, User::class],
+    version = 4, exportSchema = true
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun deviceDao(): DeviceDao
+
+    abstract fun userDao(): UserDao
 
 
     companion object {
@@ -34,7 +38,7 @@ abstract class AppDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, "zhsh-user-data")
                 .fallbackToDestructiveMigration()
-                .addMigrations(MIGRATION_3_4)
+//                .addMigrations(MIGRATION_3_4)
                 .addCallback(object : Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
@@ -82,7 +86,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private val MIGRATION_3_4 = object : Migration(3, 4) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("alter table AccountInfo add Column familyNums TEXT NOT NULL DEFAULT ''")
+//                database.execSQL("alter table AccountInfo add Column familyNums TEXT NOT NULL DEFAULT ''")
             }
         }
 

@@ -47,7 +47,7 @@ class MainFragment : Fragment() {
 
             override fun createFragment(position: Int): Fragment {
                 return when (position) {
-                    0 -> HomeFragment()
+                    0 -> RepoFragment()
                     1 -> NotificationFragment()
                     2 -> ExploreFragment()
                     3 -> MineFragment()
